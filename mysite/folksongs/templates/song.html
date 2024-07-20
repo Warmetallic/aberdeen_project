@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+<!-- Code adapted from the following https://getbootstrap.com/docs/4.0/components/card/#sizing -->
+
+
+<div class="container">
+  <div class="card-header" id="bTest">
+    <div class="card">
+      <div class="card-header">
+       <b><h1>Song ID - {{song.songID}} </h1></b>
+     </div>
+     <div class="card-body">
+      <h5 class="card-title">Information about this song </h5>
+      <p class="card-text">  
+        <b>Titles: </b> {{song.songName}} <br>
+        <b>Authors: </b> {{song.songAuthor}} <br>
+        <b>Volume: </b> {{song.songVolume}} <br>
+
+      </p>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-sm-8">
+      <button class="btn collapseButton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        More details
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="card-body">
+          <p class="card-text"><b>ID:</b> {{song.id}}</p>
+          <p class="card-text"><b>Description:</b> {{song.description}}</p>
+          <p class="card-text"><b>Date:</b> {{song.created_date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br>
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+     {% for i in images%}
+     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %} active {%endif%}" aria-current="true" aria-label="Slide 1"></button>
+     {% endfor %}
+   </div>
+   <div class="carousel-inner">
+    {% for i in images%}
+    <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+      <img class="d-block w-100" src="{{i.image.url}}" alt="Second slide">
+    </div>
+    {% endfor %}
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<!-- Code was adapted and inspired by the lectures from Dr Scharlau at the University of Aberdeen - in the 'Enterprise Software Development' module. --> 
+<!-- This was page was used in an earlier version of the application and is no oinger used as the team transferred to Django admin tools. A future development team can use a sing up page if required. -->
+
+
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   {{ form.as_p }}
+   <input type="file" name="image" multiple>
+  <button type="submit">Upload</button>
+</form>
+
+<!-- {% if song %}
+  <h3>Succesfully uploaded : {{song.songID}}</h3>
+  <img src="{{ song.image.url}}" alt="connect" style="max-height:300px">
+{% endif %} -->
+    {% endblock %}

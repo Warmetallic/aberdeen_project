@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- This was page was used in an earlier version of the application and is no oinger used as the team transferred to Django admin tools. A future development team can use a sing up page if required. -->
+<!-- Code was adapted and inspired by the lectures from Dr Scharlau at the University of Aberdeen - in the 'Enterprise Software Development' module. --> 
+
+    <h1>Folks: Login</h1>
+    {% if form.errors %}
+       <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+{% if next %}
+  {% if user.is_authenticated %}
+  <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p>Please login, or <a href = "{% url 'signup' %}">Register</a>to see this page.</p>
+  {% endif %}
+{% endif %}
+
+<p> <a href = "{% url 'signup' %}">Register</a> for an account</p>
+  <form method="POST" action="{% url 'login' %}"> 
+    {% csrf_token %}
+    <p>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </p>
+    <p>
+      {{form.password.label_tag }}
+      {{form.password }}
+    </p>
+      <input type="submit" name="Login"/>
+      <input type="hidden" name='next' value="{{ next}}"/>
+   </p>
+</form>
+    {% endblock %}

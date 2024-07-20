@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Refered to Django documentation https://docs.djangoproject.com/en/3.2/ref/templates/language/ - when writing this code -->
+<center>
+	{% if name|length > 0 and volume|length > 0 and author|length > 0  %}
+	<h1>The song title: {{ name }} || Author: {{ author }} || Volume: {{ volume }}</h1>
+	<br>
+</center>
+<ol>
+	<div class="list-group">
+		{% for song in songFilters %}
+		<li>
+			ID:{{ song.id }} Title: {{ song.songName }} Author: {{ song.songAuthor }} Volume: {{ song.songVolume }} Link: 
+			<a href="{% url 'song' song.id %}"> Song's page </a>
+			{% endfor %}
+		</li>
+	</div>
+</ol>
+
+{% elif name|length == 0 and volume|length > 0 %}
+<h1>Volume number: {{ volume }} </h1>
+<br>
+</center>
+<ol>
+	<div class="list-group">
+		{% for song in songFilters %}
+		<li>
+			ID: {{ song.id }} Volume: {{ song.songVolume }} Title: {{ song.songName }} Link: 
+			<a href="{% url 'song' song.id %}"> Song's page </a>
+			{% endfor %}
+		</li>
+	</div>
+</ol>
+
+{% elif name|length > 0 and volume|length == 0 %}
+<h1> Title: {{ name }} </h1>
+<br>
+</center>
+<ol>
+	<div class="list-group">
+		{% for song in songFilters %}
+		<li>
+			ID: {{ song.id }} Title: {{ song.songName }} Volume: {{ song.songVolume }} Link: 
+			<a href="{% url 'song' song.id %}"> Song's page </a>
+			{% endfor %}
+		</li>
+	</div>
+</ol>
+
+
+{% elif author|length > 0 and volume|length == 0 %}
+<h1> Author: {{ author }} </h1>
+<br>
+</center>
+<ol>
+	<div class="list-group">
+		{% for song in songFilters %}
+		<li>
+			ID: {{ song.id }} Title: {{ song.songName }} Author: {{ song.songAuthor }} Link: 
+			<a href="{% url 'song' song.id %}"> Song's page </a>
+			{% endfor %}
+		</li>
+	</div>
+</ol>
+
+
+{% elif name|length > 0 and volume|length > 0 %}
+<h1> Title: {{ name }} </h1>
+<br>
+</center>
+<ol>
+	<div class="list-group">
+		{% for song in songFilters %}
+		<li>
+			ID: {{ song.id }} Title: {{ song.songName }} Author: {{ song.songAuthor }} Link: 
+			<a href="{% url 'song' song.id %}"> Song's page </a>
+			{% endfor %}
+		</li>
+	</div>
+</ol>
+{% else %}
+<h1> Empty Search Field</h1>
+
+{% endif %}
+{% endblock %}

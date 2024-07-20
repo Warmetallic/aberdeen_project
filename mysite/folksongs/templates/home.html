@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+
+<body class="bodyBackground">
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h3> The Greig-Duncan Folk Song Collection </h3>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          The Greig-Duncan Folk Song Collection is the work of two important folk song collectors, Gavin Greig and Rev. James Bruce Duncan, both of whom were based in the North-East of Scotland in the early years of the twentieth century. The Collection sheds much light on the song culture of North-East Scotland at the beginning of the twentieth century, as well as providing a treasury of songs from which modern-day singers can draw.
+          This site brings the complete collection into the digital domain for the first time, allowing unprecedented search and access opportunities for singers and scholars to a collection unmatched for size, scope, and variety.
+          We hope many will enjoy this treasury of songs.</p>
+      </div>
+    </div>
+  </div>
+
+</br></br> 
+
+
+
+<div class="container">
+  <div class="grid-container">
+    {% for song in songs %}
+    <div class="card">
+      <img class="card-img-top topCardImg" src="{{song.image.url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title limitText">{{song.songName}}</h5>
+        <p class="card-text limitText"> Authors: {{song.songAuthor}} </p>
+        <a href="{% url 'song' id=song.id %}" class="btn btn-warning btn-block" id="bottonHome">View Song</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<!--Introduction section-->
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3> The Map of Greig-Duncan Folk Song Collection </h3>
+    </div>
+    <!-- This map was not created by team Alpha but was imbedded from the follwoing source "https://www.google.com/maps/d/embed?mid=1GXvJAwuQx0spixaLqCSMnRpd5lc" -->
+    <div class="card map">
+      <div class="card-body map">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1GXvJAwuQx0spixaLqCSMnRpd5lc" width="1000" height="600"></iframe>
+      </div>
+      <div> 
+        <div class="card-header">
+          <h3> Credits </h3>
+        </div>
+        <p class="mapp">
+          This map was created by Gary Swan of Aberdeenshire Libraries in 2017 to mark the 100th Anniversary of the death of the Rev James Bruce Duncan.
+          The research was mainly drawn from the eight volume 'Greig Duncan Folk Song Collection' edited by Patrick Shuldham-Shaw, Emily B. Lyle and Katherine Campbell and published by the Mercat Press for the University of Aberdeen in association with the School of Scottish Studies, University of Edinburgh. In particular we would wish to credit the original authors of the biographies contained in Volume 8 which we have summarised here.
+          To comment about the map, or make suggestions of links, email greigduncanfolksongs@gmail.com            
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

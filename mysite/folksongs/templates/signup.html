@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- This was page was used in an earlier version of the application and is no oinger used as the team transferred to Django admin tools. A future development team can use a sing up page if required. -->
+<!-- code adpated from - https://getbootstrap.com/docs/5.0/layout/containers/-->
+<!-- Code was adapted and inspired by the lectures from Dr Scharlau at the University of Aberdeen - in the 'Enterprise Software Development' module. --> 
+<div class="container" id="reg-container" style="margin:auto;">
+ <div class="card">
+  <div class="container pt-3 my-3">
+    <div class="row">
+      <div class="col"><h1 class="text-center">Registration</h1></div>
+    </div>
+      <div class="row">
+        <div class="col overridep">
+          <form method="post" > 
+            {% csrf_token %}
+            {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+              <small style="color: grey">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+            <p style="color: red">{{ error}} </p>
+            {% endfor %}
+           </p>
+            {% endfor %}
+              <input type="submit" name="Sign Up"/>
+          </form>
+      <br><br>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
