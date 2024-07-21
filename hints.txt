@@ -277,3 +277,11 @@ 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
 
 
  python manage.py loaddata shopapp-products-fixtures.json
+
+
+================================================================================================
+
+
+ssh-keygen -t rsa -b 2048 -C "Timeweb Machine" -f timeweb
+
+ssh -i timeweb.pub warmetallic@51.250.32.9

@@ -20,4 +20,4 @@ services:
         max-size: "200k"
         max-file: "10"
     volumes:
-      - ./mysite:/app/database
+      - ./mysite/database:/app/database
