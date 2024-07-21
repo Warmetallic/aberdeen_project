@@ -39,8 +39,6 @@ ALLOWED_HOSTS = [
     "localhost",
     "camilla-patient-3000.codio-box.uk",
     "127.0.0.1",
-    "51.250.35.2",
-    "51.250.35.2:8000",
 ] + getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 
@@ -65,6 +63,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "mysite.urls"
