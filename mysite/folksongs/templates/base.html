@@ -15,7 +15,8 @@
       <meta name="image" property="og:image" content="{% static 'img/aberdeen.png' %}" />
       <meta property='og:image' content="{% static 'img/aberdeen.png' %}"/>
       <meta name="description" property="og:description" content="Personal Website" /><meta name="author" content="Gleb Kharlamov" />
-      <link href="/static/style.css" type="text/css" rel="stylesheet">  
+      {% comment %} <link href="/static/style.css" type="text/css" rel="stylesheet">   {% endcomment %}
+      <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet">  
 
       <title>The Greig-Duncan Folk Song Collection </title>
       <link rel="aberdeen icon" href="{% static 'imgs/aberdeen.png' %}">
