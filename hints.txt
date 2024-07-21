@@ -284,7 +284,7 @@ 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
 
 ssh-keygen -t rsa -b 2048 -C "Timeweb Machine" -f timeweb
 
-ssh -i timeweb.pub warmetallic@51.250.32.9
+ssh -i timeweb warmetallic@51.250.35.2
 
 warmetallic@aberdeen:~$ mkdir projects
 warmetallic@aberdeen:~$ ls
