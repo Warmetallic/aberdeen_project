@@ -285,3 +285,50 @@ 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
 ssh-keygen -t rsa -b 2048 -C "Timeweb Machine" -f timeweb
 
 ssh -i timeweb.pub warmetallic@51.250.32.9
+
+warmetallic@aberdeen:~$ mkdir projects
+warmetallic@aberdeen:~$ ls
+projects
+warmetallic@aberdeen:~$ cd projects/
+warmetallic@aberdeen:~/projects$ git clone https://github.com/Warmetallic/aberdeen_project.git
+
+warmetallic@aberdeen:~/projects$ ls
+aberdeen_project
+warmetallic@aberdeen:~/projects$ cd aberdeen_project/
+warmetallic@aberdeen:~/projects/aberdeen_project$ ls
+ docker-compose.yml   Dockerfile   hints.txt   mysite   README.md   requirements.txt  'Инструкция по работе с Yandex.Cloud.pdf'
+warmetallic@aberdeen:~/projects/aberdeen_project$ openssl rand -hex 32
+38a85acdc574e40d83e5962d73d83f5bf51465f296697246d618a1cec268dd5a
+warmetallic@aberdeen:~/projects/aberdeen_project$ ls -a
+ .   ..   docker-compose.yml   Dockerfile   .dockerignore   .env.template   .git   .gitignore   hints.txt   mysite   README.md   requirements.txt  'Инструкция по работе с Yandex.Cloud.pdf'
+warmetallic@aberdeen:~/projects/aberdeen_project$ cp .env.template .env
+warmetallic@aberdeen:~/projects/aberdeen_project$ ls
+ docker-compose.yml   Dockerfile   hints.txt   mysite   README.md   requirements.txt  'Инструкция по работе с Yandex.Cloud.pdf'
+warmetallic@aberdeen:~/projects/aberdeen_project$ ls -a
+ .   ..   docker-compose.yml   Dockerfile   .dockerignore   .env   .env.template   .git   .gitignore   hints.txt   mysite   README.md   requirements.txt  'Инструкция по работе с Yandex.Cloud.pdf'
+warmetallic@aberdeen:~/projects/aberdeen_project$ nano .env
+
+в env указать айпи вирутальной машины
+ctrl + O = save
+ctrl + x = exit
+
+
+потом ввести
+docker compose up -d app
+snap services docker
+sudo snap restart docker
+docker compose up -d app
+
+warmetallic@aberdeen:~/projects/aberdeen_project$ ls -la mysite/
+total 192
+drwxrwxr-x 6 warmetallic warmetallic   4096 Jul 21 14:23 .
+drwxrwxr-x 4 warmetallic warmetallic   4096 Jul 21 14:15 ..
+drwxr-xr-x 2 root        root          4096 Jul 21 14:23 database
+-rw-rw-r-- 1 warmetallic warmetallic 167936 Jul 21 14:10 db.sqlite3
+drwxrwxr-x 5 warmetallic warmetallic   4096 Jul 21 14:10 folksongs
+-rw-rw-r-- 1 warmetallic warmetallic    662 Jul 21 14:10 manage.py
+drwxrwxr-x 3 warmetallic warmetallic   4096 Jul 21 14:10 mysite
+drwxrwxr-x 3 warmetallic warmetallic   4096 Jul 21 14:10 static
+
+
+docker compose exec app python manage.py migrate
