@@ -1,5 +1,7 @@
 # Alpha-2021
 
+The project link: http://51.250.35.2:8000/
+
 ## Team members:
 
 **_Qi Liu_**
@@ -53,8 +55,6 @@ The version control system was used to create this project. It allowed our team 
 *Yandex Cloud* 
 
 The project is deployed on Yandex Cloud
-
-The website link: http://51.250.35.2:8000/
 
 
 *Data and storage*
